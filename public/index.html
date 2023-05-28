@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Document</title>
+</head>
+<body class="p-[5vw] font-mono">
+  <div class="w-full text-center text-7xl my-[10vh] ">API Documentation</div>
+  <p class="text-3xl p-1">Toys API</p>
+  <div class="flex font-bold mt-2 text-xl justify-between px-1">
+    <p class="w-1/6">HTTP Method</p>
+    <p class="w-1/6">Route</p>
+    <p class="w-2/6">Description</p>
+    <p class="w-2/6">Parameters / Request Body</p>
+  </div>
+  <div class="w-full  ">
+    
+    <div class="flex w-full justify-between p-1 bg-green-200 hover:bg-green-300 my-1">
+      <p class="w-1/6 p-1">Get</p>
+      <p class="w-1/6 p-1">/toys</p>
+      <p class="w-2/6 p-1">Returns a list of toys according to the query parameters.</p>
+      <ul class="w-2/6 p-1 list-disc">
+        <li class="">
+          <span class="font-bold">page (optional):</span> page number to return (default: 1).
+          <br/>
+          <a class="underline text-blue-700 api_toys"></a>
+        </li>
+        <li>
+          <span class="font-bold">perPage (optional):</span> number of toys per page (default: 10).
+          <br/>
+          <a class="underline text-blue-700 api_toys"></a>
+        </li>
+        <li>
+          <span class="font-bold">sort (optional):</span> the sort of the toy properties (default: "_id").
+          <br/>
+          <a class="underline text-blue-700 api_toys"></a>
+        </li>
+        <li>
+          <span class="font-bold">reverse (optional):</span> the whey we sort up to down or select "yes" for the opposite (default: up to down).
+          <br/>
+          <a class="underline text-blue-700 api_toys"></a>
+        </li>
+        <li>
+          <span class="font-bold">category (optional):</span> the name of the category to retrieve toys for.
+          <br/>
+          <a class="underline text-blue-700 api_toys"></a>
+        </li>
+        <li>
+          <span class="font-bold">s (optional):</span> the search query to match against toy names or descriptions .
+          <br/>
+          <a class="underline text-blue-700 api_toys"></a>
+        </li>
+        <li>
+          <span class="font-bold">user_id (optional):</span> find all toys created by the user id.
+          <br/>
+          <a class="underline text-blue-700 api_toys"></a>
+        </li>
+      </ul>
+    </div>
+
+
+
+    <div class="flex w-full justify-between p-1 bg-green-200 hover:bg-green-300 my-1">
+      <p class="w-1/6 p-1">Get</p>
+      <p class="w-1/6 p-1">/toys/single/:id</p>
+      <p class="w-2/6 p-1">Returns a single toy by his id.</p>
+      <ul class="w-2/6 p-1 list-disc">
+        <li class="w-full overflow-x-auto" >
+          <span class="font-bold">id</span> the ID of the toy to retrieve.
+          <br/>
+          <a class="underline text-blue-700 api_toys" ></a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="flex w-full justify-between p-1 bg-green-200 hover:bg-green-300 my-1">
+      <p class="w-1/6 p-1">Get</p>
+      <p class="w-1/6 p-1">/toys/count</p>
+      <p class="w-2/6 p-1">Returns the amount of toys according to the query parameters.</p>
+      <ul class="w-2/6 p-1 list-disc">
+        <li class="w-full " >
+          <span class="font-bold break-all">page,perPage,sort,reverse,category,s,user_id</span> the same parameters as /toys route.
+          <br/>
+          <a class="underline text-blue-700 api_toys break-all" ></a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="flex w-full justify-between p-1 bg-yellow-100 hover:bg-yellow-200 my-1">
+      <p class="w-1/6 p-1">Post</p>
+      <p class="w-1/6 p-1">/toys/groupIds</p>
+      <p class="w-2/6 p-1">Get number of toys by their id .</p>
+      <ul class="w-2/6 p-1 list-disc">
+        <li class="w-full overflow-x-auto" >
+          <span class="font-bold">Request Body:</span>
+          <p>{</p>
+          <p><span class="font-bold">favs_ar:Array</span>,(min=1,required).</p>
+          <p>}</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="flex w-full justify-between p-1 bg-yellow-100 hover:bg-yellow-200 my-1">
+      <p class="w-1/6 p-1">Post</p>
+      <p class="w-1/6 p-1">/toys</p>
+      <p class="w-2/6 p-1">Add a new toy <span class="font-bold ">(Token Required)</span>.</p>
+      <ul class="w-2/6 p-1 list-disc">
+        <li class="w-full overflow-x-auto" >
+          <span class="font-bold">Request Body:</span>
+          <p>{</p>
+          <p><span class="font-bold">name:String</span>,(min=2,max=100,required).</p>
+          <p><span class="font-bold">info:String</span>,(min=2,max=600,required).</p>
+          <p><span class="font-bold">price:Number</span>,(min=1,max=99999,required).</p>
+          <p><span class="font-bold">category_url:String</span>,(min=2,max=100,required).</p>
+          <p ><span class="font-bold">img_url:String</span>,(min=2,max=400,allowed to be ""/null).</p>
+          <p>}</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="flex w-full justify-between p-1 bg-blue-100 hover:bg-blue-200 my-1">
+      <p class="w-1/6 p-1">Put</p>
+      <p class="w-1/6 p-1">/toys/:id</p>
+      <p class="w-2/6 p-1">Update toy by id <span class="font-bold ">(Token Required)</span>.
+        <br/>
+      Can be only by the toy's user or admin</p>
+      <ul class="w-2/6 p-1 list-disc">
+        <li class="w-full overflow-x-auto" >
+          <span class="font-bold">id:</span> the toy's id.
+        </li>
+        <li class="w-full overflow-x-auto" >
+          <span class="font-bold">Request Body:</span>
+          <p>{</p>
+          <p><span class="font-bold">name:String</span>,(min=2,max=100,required).</p>
+          <p><span class="font-bold">info:String</span>,(min=2,max=600,required).</p>
+          <p><span class="font-bold">price:Number</span>,(min=1,max=99999,required).</p>
+          <p><span class="font-bold">category_url:String</span>,(min=2,max=100,required).</p>
+          <p ><span class="font-bold">img_url:String</span>,(min=2,max=400,allowed to be ""/null).</p>
+          <p>}</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="flex w-full justify-between p-1 bg-red-100 hover:bg-red-200 my-1">
+      <p class="w-1/6 p-1">Delete</p>
+      <p class="w-1/6 p-1">/toys/:id</p>
+      <p class="w-2/6 p-1">Delete toy by id <span class="font-bold ">(Token Required)</span>.
+        <br/>
+        Can be only by the toy's user or admin</p>
+      <ul class="w-2/6 p-1 list-disc">
+        <li class="w-full overflow-x-auto" >
+          <span class="font-bold">id</span> the toy's id.
+        </li>
+      </ul>
+    </div>
+
+
+
+
+
+
+    <p class="text-3xl p-1 mt-[25vh]">Toys Categories API</p>
+    <div class="flex font-bold mt-2 text-xl justify-between px-1">
+      <p class="w-1/6 p-1">HTTP Method</p>
+      <p class="w-1/6 p-1">Route</p>
+      <p class="w-2/6 p-1">Description</p>
+      <p class="w-2/6 p-1">Parameters / Request Body</p>
+    </div>
+    <div class="w-full  ">
+      
+      <div class="flex w-full justify-between p-1 bg-green-200 hover:bg-green-300 my-1">
+        <p class="w-1/6 p-1">Get</p>
+        <p class="w-1/6 p-1">/categories</p>
+        <p class="w-2/6 p-1">Returns a list of toys's categories.</p>
+        <ul class="w-2/6 p-1 list-disc">
+          <li class="">
+            <span class="font-bold">page (optional):</span> page number to return (default: 1).
+            <br/>
+            <a class="underline text-blue-700 api_categories"></a>
+          </li>
+          <li>
+            <span class="font-bold">perPage (optional):</span> number of categories per page (default: 20).
+            <br/>
+            <a class="underline text-blue-700 api_categories"></a>
+          </li>
+          <li>
+            <span class="font-bold">sort (optional):</span> the sort of the categories properties (default: "_id").
+            <br/>
+            <a class="underline text-blue-700 api_categories"></a>
+          </li>
+          <li>
+            <span class="font-bold">reverse (optional):</span> the whey we sort up to down or select "yes" for the opposite (default: up to down).
+            <br/>
+            <a class="underline text-blue-700 api_categories"></a>
+          </li>
+        </ul>
+      </div>
+  
+
+  
+      <div class="flex w-full justify-between p-1 bg-yellow-100 hover:bg-yellow-200 my-1">
+        <p class="w-1/6 p-1">Post</p>
+        <p class="w-1/6 p-1">/categories</p>
+        <p class="w-2/6 p-1">Add a new toy category <span class="font-bold ">(Admin Token Required)</span>.</p>
+        <ul class="w-2/6 p-1 list-disc">
+          <li class="w-full overflow-x-auto" >
+            <span class="font-bold">Request Body:</span>
+            <p>{</p>
+            <p><span class="font-bold">name:String</span>,(min=2,max=100,required).</p>
+            <p><span class="font-bold">url_name:String</span>,(min=2,max=100,required).</p>
+            <p><span class="font-bold">info:String</span>,(min=2,max=400,required).</p>
+            <p ><span class="font-bold">img_url:String</span>,(min=2,max=400,allowed to be ""/null).</p>
+            <p>}</p>
+          </li>
+        </ul>
+      </div>
+  
+      <div class="flex w-full justify-between p-1 bg-blue-100 hover:bg-blue-200 my-1">
+        <p class="w-1/6 p-1">Put</p>
+        <p class="w-1/6 p-1">/categories/:id</p>
+        <p class="w-2/6 p-1">Update category by id <span class="font-bold ">(Admin Token Required)</span>.</p>
+        <ul class="w-2/6 p-1 list-disc">
+          <li class="w-full overflow-x-auto" >
+            <span class="font-bold">id:</span> the category's id.
+          </li>
+          <li class="w-full overflow-x-auto" >
+            <span class="font-bold">Request Body:</span>
+            <p>{</p>
+            <p><span class="font-bold">name:String</span>,(min=2,max=100,required).</p>
+            <p><span class="font-bold">url_name:String</span>,(min=2,max=100,required).</p>
+            <p><span class="font-bold">info:String</span>,(min=2,max=400,required).</p>
+            <p ><span class="font-bold">img_url:String</span>,(min=2,max=400,allowed to be ""/null).</p>
+            <p>}</p>
+          </li>
+        </ul>
+      </div>
+  
+      <div class="flex w-full justify-between p-1 bg-red-100 hover:bg-red-200 my-1">
+        <p class="w-1/6 p-1">Delete</p>
+        <p class="w-1/6 p-1">/categories/:id</p>
+        <p class="w-2/6 p-1">Delete toy by id <span class="font-bold ">(Token Required)</span>.</p>
+        <ul class="w-2/6 p-1 list-disc">
+          <li class="w-full overflow-x-auto" >
+            <span class="font-bold">id</span> the category's id.
+          </li>
+        </ul>
+      </div>
+
+
+
+
+
+
+
+
+
+
+      <p class="text-3xl p-1 mt-[25vh]">Users API</p>
+      <div class="flex font-bold mt-2 text-xl justify-between px-1">
+        <p class="w-1/6 p-1">HTTP Method</p>
+        <p class="w-1/6 p-1">Route</p>
+        <p class="w-2/6 p-1">Description</p>
+        <p class="w-2/6 p-1">Parameters / Request Body</p>
+      </div>
+      <div class="w-full  ">
+        
+        <div class="flex w-full justify-between p-1 bg-green-200 hover:bg-green-300 my-1">
+          <p class="w-1/6 p-1">Get</p>
+          <p class="w-1/6 p-1">/users/userInfo</p>
+          <p class="w-2/6 p-1">Returns the user details.
+            <span class="font-bold ">(Token Required)</span>
+          </p>
+          <ul class="w-2/6 p-1 list-disc">
+            <li class="">
+              <span class="font-bold">no queries or parameters</span>
+              <a class="underline text-blue-700 api_users"></a>
+            </li>
+          </ul>
+        </div>
+    
+        <div class="flex w-full justify-between p-1 bg-green-200 hover:bg-green-300 my-1">
+          <p class="w-1/6 p-1">Get</p>
+          <p class="w-1/6 p-1">/users/userInfo</p>
+          <p class="w-2/6 p-1">Returns a list of all the users.
+            <span class="font-bold ">(Admin Token Required)</span>
+          </p>
+          <ul class="w-2/6 p-1 list-disc">
+            <li class="">
+              <span class="font-bold">no queries or parameters</span>
+              <a class="underline text-blue-700 api_users"></a>
+            </li>
+          </ul>
+        </div>
+  
+    
+        <div class="flex w-full justify-between p-1 bg-yellow-100 hover:bg-yellow-200 my-1">
+          <p class="w-1/6 p-1">Post</p>
+          <p class="w-1/6 p-1">/users</p>
+          <p class="w-2/6 p-1">Add a new user .</p>
+          <ul class="w-2/6 p-1 list-disc">
+            <li class="w-full overflow-x-auto" >
+              <span class="font-bold">Request Body:</span>
+              <p>{</p>
+              <p><span class="font-bold">name:String</span>,(min=2,max=150,required).</p>
+              <p><span class="font-bold">email:String</span>,(min=2,max=200,required).</p>
+              <p><span class="font-bold">password:String</span>,(min=3,max=150,required).</p>
+              <p>}</p>
+            </li>
+          </ul>
+        </div>
+
+        <div class="flex w-full justify-between p-1 bg-yellow-100 hover:bg-yellow-200 my-1">
+          <p class="w-1/6 p-1">Post</p>
+          <p class="w-1/6 p-1">/users/login</p>
+          <p class="w-2/6 p-1">Authenticate a user and receive a JWT token in response .</p>
+          <ul class="w-2/6 p-1 list-disc">
+            <li class="w-full overflow-x-auto" >
+              <span class="font-bold">Request Body:</span>
+              <p>{</p>
+              <p><span class="font-bold">email:String</span>,(min=2,max=200,required).</p>
+              <p><span class="font-bold">password:String</span>,(min=3,max=150,required).</p>
+              <p>}</p>
+            </li>
+          </ul>
+        </div>
+    
+        <div class="flex w-full justify-between p-1 bg-blue-100 hover:bg-blue-200 my-1">
+          <p class="w-1/6 p-1">Put</p>
+          <p class="w-1/6 p-1">/users/:id</p>
+          <p class="w-2/6 p-1">Update user by id <span class="font-bold ">(Token Required)</span>
+            <br/> Can be only by the user himself or admin.</p>
+          <ul class="w-2/6 p-1 list-disc">
+            <li class="w-full overflow-x-auto" >
+              <span class="font-bold">id:</span> the user's id.
+            </li>
+            <li class="w-full overflow-x-auto" >
+              <span class="font-bold">Request Body:</span>
+              <p>{</p>
+              <p><span class="font-bold">name:String</span>,(min=2,max=150,required).</p>
+              <p><span class="font-bold">email:String</span>,(min=2,max=200,required).</p>
+              <p><span class="font-bold">password:String</span>,(min=3,max=150,required).</p>
+              <p>}</p>
+            </li>
+          </ul>
+        </div>
+
+        <div class="flex w-full justify-between p-1 bg-gray-100 hover:bg-gray-200 my-1">
+          <p class="w-1/6 p-1">Patch</p>
+          <p class="w-1/6 p-1 break-all">/users/changeRole/:id/:role</p>
+          <p class="w-2/6 p-1">Update user role by id <span class="font-bold ">(Admin Token Required)</span>.</p>
+          <ul class="w-2/6 p-1 list-disc">
+            <li class="w-full overflow-x-auto" >
+              <span class="font-bold">id:</span> the user's id.
+            </li>
+            <li class="w-full overflow-x-auto" >
+              <span class="font-bold">role:</span> the role to change.
+            </li>
+          </ul>
+        </div>
+
+        <div class="flex w-full justify-between p-1 bg-gray-100 hover:bg-gray-200 my-1">
+          <p class="w-1/6 p-1">Patch</p>
+          <p class="w-1/6 p-1 break-all">/users/updateFavs</p>
+          <p class="w-2/6 p-1">Update user's favs_ar <span class="font-bold ">(Token Required)</span>.</p>
+          <ul class="w-2/6 p-1 list-disc">
+            <li class="w-full overflow-x-auto" >
+              <span class="font-bold">favs_ar:</span> array of toys ids.
+            </li>
+          </ul>
+        </div>
+    
+        <div class="flex w-full justify-between p-1 bg-red-100 hover:bg-red-200 my-1">
+          <p class="w-1/6 p-1">Delete</p>
+          <p class="w-1/6 p-1">/users/:id</p>
+          <p class="w-2/6 p-1">Delete user by id <span class="font-bold ">(Admin Token Required)</span>.</p>
+          <ul class="w-2/6 p-1 list-disc">
+            <li class="w-full overflow-x-auto" >
+              <span class="font-bold">id</span> the user's id.
+            </li>
+          </ul>
+        </div>
+
+
+        <div class="w-full text-center mt-[5vh]">
+          copyright &copy; 2023 <span class="font-bold">Yohai Israel Ohana</span>
+        </div>
+  </div>
+  <script>
+
+    let api_toys = document.querySelectorAll('.api_toys');
+    let api_toys_routes = [
+      "?page=1",
+      "?perPage=10",
+      "?sort=_id",
+      "?reverse=yes",
+      "?category=girls",
+      "?s=doll",
+      "?user_id=646f3296325ab3460e6e5ae7",
+      "/single/646f6c6cecf12b512f830625",
+      "/count",
+    ];
+
+    let api_categories_toys = document.querySelectorAll('.api_categories');
+    let api_categories_toys_routes = [
+      "?page=1",
+      "?perPage=20",
+      "?sort=_id",
+      "?reverse=yes",
+    ]
+
+    let api_users = document.querySelectorAll('.api_users');
+    let api_users_routes = [
+      "/userInfo",
+      "/usersList"
+    ]
+
+
+
+
+    api_toys.forEach((link,i) => {
+      link.innerHTML = `http://localhost:3001/toys${api_toys_routes[i]}`;
+      link.setAttribute('href', `http://localhost:3001/toys${api_toys_routes[i]}`);
+    });
+
+    api_categories_toys.forEach((link,i) => {
+      link.innerHTML = `http://localhost:3001/categories${api_categories_toys_routes[i]}`;
+      link.setAttribute('href', `http://localhost:3001/categories${api_categories_toys_routes[i]}`);
+    });
+
+    api_users.forEach((link,i) => {
+      link.innerHTML = `http://localhost:3001/users${api_users_routes[i]}`;
+      link.setAttribute('href', `http://localhost:3001/users${api_users_routes[i]}`);
+    });
+
+
+
+  </script>
+</body>
+</html>
